@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: sauravsingh
+      changes:
+        - createTable:
+            tableName: apm_tag_details
+            columns:
+              - column:
+                  name: apm_tag_id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: apm_tag_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: enabled
+                  type: bit
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 2
+      author: sauravsingh
+      changes:
+        - insert:
+            tableName: apm_tag_details
+            columns:
+              - column:
+                  name: apm_tag_name
+                  value: directdebit
+              - column:
+                  name: enabled
+                  value: 1
